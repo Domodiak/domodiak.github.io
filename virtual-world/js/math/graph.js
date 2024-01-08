@@ -26,9 +26,12 @@ class Graph {
         }
     }
 
+    #getPointAtPosition(x, y) {
+        return this.points.find((v) => v.x === x && v.y === y)
+    }
+
     addPoint(x, y) {
-        const hasPoint = this.points.some((v) => v.x === x && v.y === y)
-        const success = !hasPoint
+        const success = this.#getPointAtPosition(x, y) == null
 
         if(success) {
             const point = new Point(x, y)
@@ -37,6 +40,13 @@ class Graph {
         }
 
         return null
+    }
+
+    movePoint(point, x, y) {
+        if(!this.#getPointAtPosition(x, y)) {
+            point.x = x
+            point.y = y
+        }
     }
 
     removeEdge(e) {

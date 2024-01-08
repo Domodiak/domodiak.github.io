@@ -6,6 +6,8 @@ class GraphEditor {
         this.pointIntent = null
         this.edgeIntent = null
 
+        this.drag = null
+
         this.#addEventListeners()
     }
     
@@ -24,6 +26,9 @@ class GraphEditor {
                     this.graph.addEdge(p1, p2)
                 }
             }
+        }
+        if(e.button === 1 && this.hover) {
+            this.drag = this.hover
         }
         if(e.button === 2) {
             if(this.hover) {
@@ -48,6 +53,10 @@ class GraphEditor {
         } else {
             this.edgeIntent = null
         }
+
+        if(this.drag) {
+            this.graph.movePoint(this.drag, e.x, e.y)
+        }
     }
 
     #onKeyDown(e) {
@@ -64,10 +73,15 @@ class GraphEditor {
         }
     }
 
+    #onMouseUp(e) {
+        this.drag = null
+    }
+
     #addEventListeners() {
         document.addEventListener('keydown', this.#onKeyDown.bind(this))
         document.addEventListener('mousedown', this.#onMouseDown.bind(this))
         document.addEventListener('mousemove', this.#onMouseMove.bind(this))
+        document.addEventListener('mouseup', this.#onMouseUp.bind(this))
         document.addEventListener("contextmenu", (e) => e.preventDefault())
     }
 
@@ -81,11 +95,13 @@ class GraphEditor {
     }
 
     #removePoint(point) {
-        this.graph.removePoint(this.hover)
-        if(this.selection == this.hover) {
+        this.graph.removePoint(point)
+        if(this.selection == point) {
             this.selection = null
         }
-        this.hover = null
+        if(this.hover == point) {
+            this.hover = null
+        }
     }
 
     #deselect() {
