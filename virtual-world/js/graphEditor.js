@@ -28,11 +28,13 @@ class GraphEditor {
             }
             if(e.button === 2) {
                 if(this.hover) {
-                    this.graph.removePoint(this.hover)
-                    if(this.selection == this.hover) {
+                    if(this.selection) {
                         this.selection = null
+                        this.edgeIntent = null
+                    } else {
+                        this.graph.removePoint(this.hover)
+                        this.hover = null
                     }
-                    this.hover = null
                 } else {
                     this.selection = null
                     this.edgeIntent = null
