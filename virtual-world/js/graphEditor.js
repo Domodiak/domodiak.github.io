@@ -55,6 +55,7 @@ class GraphEditor {
         }
 
         if(this.drag) {
+            this.hover = this.drag
             this.graph.movePoint(this.drag, e.x, e.y)
         }
     }
