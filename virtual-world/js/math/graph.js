@@ -4,13 +4,25 @@ class Graph {
         this.edges = edges
     }
 
+    #getConnections(p) {
+        return this.edges.filter((v) => v.has(p))
+    }
+
     draw(ctx) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
         for(let edge of this.edges) {
             edge.draw(ctx)
         }
 
         for(let point of this.points) {
             point.draw(ctx)
+        }
+    }
+
+    addEdge(p1, p2) {
+        const edge = new Edge(p1, p2)
+        if(!this.edges.some((v) => v.equals(edge))) {
+            this.edges.push(edge)
         }
     }
 
@@ -25,6 +37,15 @@ class Graph {
         }
 
         return null
+    }
+
+    removeEdge(e) {
+        this.edges.splice(this.edges.indexOf(e), 1)
+    }
+
+    removePoint(p) {
+        this.#getConnections(p).map(v => this.removeEdge(v))
+        this.points.splice(this.points.indexOf(p), 1)
     }
 
     dispose() {
