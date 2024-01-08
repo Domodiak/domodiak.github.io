@@ -27,11 +27,7 @@ class GraphEditor {
         }
         if(e.button === 2) {
             if(this.hover) {
-                if(this.selection == this.hover) {
-                    this.#deselect()
-                } else {
-                    this.#removePoint(this.hover)
-                }
+                this.#removePoint(this.hover)
             } else {
                 this.#deselect()
             }
@@ -62,7 +58,7 @@ class GraphEditor {
                     this.#deselect()
                     break;
                 case "Delete":
-                    if(this.hover && this.hover != this.selection) {
+                    if(this.hover) {
                         this.#removePoint(this.hover)
                     }
                     break;
