@@ -28,15 +28,12 @@ class GraphEditor {
         if(e.button === 2) {
             if(this.hover) {
                 if(this.selection == this.hover) {
-                    this.selection = null
-                    this.edgeIntent = null
+                    this.#deselect()
                 } else {
-                    this.graph.removePoint(this.hover)
-                    this.hover = null
+                    this.#removePoint(this.hover)
                 }
             } else {
-                this.selection = null
-                this.edgeIntent = null
+                this.#deselect()
             }
         }
     }
@@ -58,6 +55,19 @@ class GraphEditor {
     }
 
     #addEventListeners() {
+        document.addEventListener('keydown', (e) => {
+            
+            switch(e.key) {
+                case "Escape":
+                    this.#deselect()
+                    break;
+                case "Delete":
+                    if(this.hover && this.hover != this.selection) {
+                        this.#removePoint(this.hover)
+                    }
+                    break;
+            }
+        })
         document.addEventListener('mousedown', this.#onMouseDown.bind(this))
         document.addEventListener('mousemove', this.#onMouseMove.bind(this))
         document.addEventListener("contextmenu", (e) => e.preventDefault())
@@ -70,6 +80,19 @@ class GraphEditor {
         this.pointIntent = null
         this.edgeIntent = null
         return newPoint
+    }
+
+    #removePoint(point) {
+        this.graph.removePoint(this.hover)
+        if(this.selection == this.hover) {
+            this.selection = null
+        }
+        this.hover = null
+    }
+
+    #deselect() {
+        this.selection = null
+        this.edgeIntent = null
     }
 
     draw(ctx) {
