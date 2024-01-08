@@ -14,6 +14,20 @@ class Graph {
         }
     }
 
+    addPoint(x, y) {
+        const hasPoint = this.points.some((v) => v.x === x && v.y === y)
+        const success = !hasPoint
+
+        console.log(success)
+        if(success) {
+            const point = new Point(x, y)
+            this.points.push(point)
+            return point
+        }
+
+        return null
+    }
+
     dispose() {
         this.points.length = 0
         this.edges.length = 0
