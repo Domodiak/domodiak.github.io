@@ -28,7 +28,7 @@ class GraphEditor {
             }
             if(e.button === 2) {
                 if(this.hover) {
-                    if(this.selection) {
+                    if(this.selection == this.hover) {
                         this.selection = null
                         this.edgeIntent = null
                     } else {
