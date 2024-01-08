@@ -50,20 +50,22 @@ class GraphEditor {
         }
     }
 
-    #addEventListeners() {
-        document.addEventListener('keydown', (e) => {
+    #onKeyDown(e) {
             
-            switch(e.key) {
-                case "Escape":
-                    this.#deselect()
-                    break;
-                case "Delete":
-                    if(this.hover) {
-                        this.#removePoint(this.hover)
-                    }
-                    break;
-            }
-        })
+        switch(e.key) {
+            case "Escape":
+                this.#deselect()
+                break;
+            case "Delete":
+                if(this.hover) {
+                    this.#removePoint(this.hover)
+                }
+                break;
+        }
+    }
+
+    #addEventListeners() {
+        document.addEventListener('keydown', this.#onKeyDown.bind(this))
         document.addEventListener('mousedown', this.#onMouseDown.bind(this))
         document.addEventListener('mousemove', this.#onMouseMove.bind(this))
         document.addEventListener("contextmenu", (e) => e.preventDefault())
