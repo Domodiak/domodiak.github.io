@@ -9,55 +9,57 @@ class GraphEditor {
         this.#addEventListeners()
     }
     
-    #addEventListeners() {
-        document.addEventListener('mousedown', (e) => {
-            if(e.button === 0) {
-                if(this.hover) {
-                    if(this.selection) {
-                        this.graph.addEdge(this.hover, this.selection)
-                    }
-                    this.edgeIntent = null
-                    this.selection = this.hover
-                } else {
-                    const p1 = this.selection
-                    const p2 = this.#addPoint(e.x, e.y)
-                    if(p1) {
-                        this.graph.addEdge(p1, p2)
-                    }
+    #onMouseDown(e) {
+        if(e.button === 0) {
+            if(this.hover) {
+                if(this.selection) {
+                    this.graph.addEdge(this.hover, this.selection)
+                }
+                this.edgeIntent = null
+                this.selection = this.hover
+            } else {
+                const p1 = this.selection
+                const p2 = this.#addPoint(e.x, e.y)
+                if(p1) {
+                    this.graph.addEdge(p1, p2)
                 }
             }
-            if(e.button === 2) {
-                if(this.hover) {
-                    if(this.selection == this.hover) {
-                        this.selection = null
-                        this.edgeIntent = null
-                    } else {
-                        this.graph.removePoint(this.hover)
-                        this.hover = null
-                    }
-                } else {
+        }
+        if(e.button === 2) {
+            if(this.hover) {
+                if(this.selection == this.hover) {
                     this.selection = null
                     this.edgeIntent = null
+                } else {
+                    this.graph.removePoint(this.hover)
+                    this.hover = null
                 }
-            }
-        })
-
-        document.addEventListener('mousemove', (e) => {
-            this.hover = this.graph.getNearestPoint(new Point(e.x, e.y), 8)
-
-            if(!this.hover) {
-                this.pointIntent = new Point(e.x, e.y)
             } else {
-                this.pointIntent = null
-            }
-
-            if(this.selection) {
-                this.edgeIntent = new Edge(this.hover ? this.hover : this.pointIntent, this.selection)
-            } else {
+                this.selection = null
                 this.edgeIntent = null
             }
-        })
+        }
+    }
 
+    #onMouseMove(e) {
+        this.hover = this.graph.getNearestPoint(new Point(e.x, e.y), 8)
+
+        if(!this.hover) {
+            this.pointIntent = new Point(e.x, e.y)
+        } else {
+            this.pointIntent = null
+        }
+
+        if(this.selection) {
+            this.edgeIntent = new Edge(this.hover ? this.hover : this.pointIntent, this.selection)
+        } else {
+            this.edgeIntent = null
+        }
+    }
+
+    #addEventListeners() {
+        document.addEventListener('mousedown', this.#onMouseDown.bind(this))
+        document.addEventListener('mousemove', this.#onMouseMove.bind(this))
         document.addEventListener("contextmenu", (e) => e.preventDefault())
     }
 
