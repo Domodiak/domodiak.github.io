@@ -5,11 +5,11 @@ class Edge {
     }
 
     draw(ctx, { width = 2, color = "#000", dash = [] } = {}) {
-        ctx.moveTo(this.p1.x - 8, this.p1.y - 8)
+        ctx.moveTo(this.p1.x, this.p1.y)
         ctx.strokeStyle = color
         ctx.setLineDash(dash)
         ctx.lineWidth = width
-        ctx.lineTo(this.p2.x - 8, this.p2.y - 8)
+        ctx.lineTo(this.p2.x, this.p2.y)
         ctx.stroke()
         ctx.strokeStyle = "#000"
         ctx.setLineDash([])

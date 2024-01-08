@@ -5,6 +5,8 @@ const graph = new Graph()
 const graphEditor = new GraphEditor(graph)
 
 function draw() {
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
     graphEditor.draw(ctx)
 
     window.requestAnimationFrame(draw)
