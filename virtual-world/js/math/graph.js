@@ -18,7 +18,6 @@ class Graph {
         const hasPoint = this.points.some((v) => v.x === x && v.y === y)
         const success = !hasPoint
 
-        console.log(success)
         if(success) {
             const point = new Point(x, y)
             this.points.push(point)
@@ -31,5 +30,22 @@ class Graph {
     dispose() {
         this.points.length = 0
         this.edges.length = 0
+    }
+
+    getNearestPoint(p, threshold = Number.MAX_SAFE_INTEGER) {
+        let closest_dist = Number.MAX_SAFE_INTEGER
+        let closest_p = null
+
+        for(let graphPoint of this.points) {
+            if(graphPoint === p) continue
+
+            const dist = distance(p, graphPoint)
+            if (dist < closest_dist) {
+                closest_dist = dist
+                closest_p = graphPoint
+            }
+        }
+
+        return closest_dist < threshold ? closest_p : null
     }
 }
