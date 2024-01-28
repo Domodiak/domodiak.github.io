@@ -1,11 +1,11 @@
-a {
+section#content a {
     padding: 1rem;
     background-color: #5454fc;
     border-radius: 0.5rem;
     text-decoration: none;
     color: white;
 }
-a:hover {
+section#content a:hover {
     background-color: #3d3dc7;
 }
 
@@ -14,7 +14,12 @@ p {
     font-weight: 900;
 }
 
-body {
+section#content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;

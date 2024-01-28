@@ -8,45 +8,6 @@
     opacity: 0.7;
 }
 
-nav {
-    gap: 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    font-size: 1.5rem;
-}
-
-nav figure {
-    font-size: 2rem;
-}
-
-.links {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.links li a {
-    opacity: 0.5;
-    color: black;
-    text-decoration: none;
-    padding: 0.5rem;
-    transition: 0.5s opacity;
-}
-
-.links li a.selected {
-    opacity: 0.7;
-    color: #5454fc;
-}
-
-.links li a:hover {
-    opacity: 1;
-}
-
 .accent {
     color: #5454fc;
 }
