@@ -1,14 +1,17 @@
-.btn {
+a {
     padding: 1rem;
-    background-color: rgb(33, 47, 95);
-    border-radius: 0.3rem;
+    background-color: #5454fc;
+    border-radius: 0.5rem;
     text-decoration: none;
     color: white;
 }
+a:hover {
+    background-color: #3d3dc7;
+}
 
-.text {
+p {
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 900;
 }
 
 body {
