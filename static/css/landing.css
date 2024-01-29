@@ -16,7 +16,7 @@ section#landing {
     padding: 1.5rem;
     display: grid;
     grid-template-columns: minmax(465px, 1.5fr) 2fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: max-content 1fr;
     gap: 1.5rem;
     min-height: 700px
 }
@@ -27,13 +27,6 @@ section#landing .grid-cell {
 
 section#landing #landing-grid-cell-span {
     grid-row: span 2;
-}
-
-.ua:nth-child(1) {
-    color: #CFC800;
-}
-.ua:nth-child(2) {
-    color: #5454fc;
 }
 
 #landing-grid-cell-header {

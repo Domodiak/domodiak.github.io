@@ -12,7 +12,7 @@ nav figure {
     font-size: 2rem;
 }
 
-.links {
+nav .links {
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -20,19 +20,19 @@ nav figure {
     flex-wrap: wrap;
 }
 
-.links li a {
-    opacity: 0.5;
+nav .links li a {
     color: black;
     text-decoration: none;
     padding: 0.5rem;
-    transition: 0.5s opacity;
+    transition: 0.2s color;
 }
 
-.links li a.selected {
-    opacity: 0.7;
+nav .links li a:hover {
     color: #5454fc;
 }
 
-.links li a:hover {
-    opacity: 1;
+nav .links li a.selected {
+    background-color: #5454fc;
+    border-radius: 0.5rem;
+    color: white;
 }
