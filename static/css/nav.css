@@ -18,21 +18,30 @@ nav .links {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav .links li {
+    padding: 0.5rem;
 }
 
 nav .links li a {
-    color: black;
-    text-decoration: none;
-    padding: 0.5rem;
     transition: 0.2s color;
+    color: #fff;
+    text-decoration: none;
 }
 
-nav .links li a:hover {
+nav .links li > a:not(.selected):hover {
     color: #5454fc;
 }
 
-nav .links li a.selected {
+nav .links li:has(a.selected) {
     background-color: #5454fc;
     border-radius: 0.5rem;
+    transition: 0.2s background-color;
     color: white;
+}
+
+nav .links li:has(a.selected:hover) {
+    background-color: #2e2e97;
 }
