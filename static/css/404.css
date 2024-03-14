@@ -1,12 +1,12 @@
 section#content a {
     padding: 1rem;
-    background-color: #5454fc;
+    background-color: var(--accent);
     border-radius: 0.5rem;
     text-decoration: none;
-    color: white;
+    color: var(--text);
 }
 section#content a:hover {
-    background-color: #3d3dc7;
+    background-color: var(--accent);
 }
 
 p {
