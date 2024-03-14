@@ -8,10 +8,10 @@ I'm Domodiak, a self-taught programmer from Ukraine, I prioritise versatility, w
 
 ## Projects
 
-### 01. Car AI
+### 01. AI Car
 
 - **Description:** This is a top-down view project, where an AI car is learning to reach a specific target on the map
-- **Link:** https://domodiak.github.io/virtual-world/
+- **Link:** https://domodiak.github.io/ai-car/
 
 ## Website
 
