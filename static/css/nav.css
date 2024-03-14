@@ -1,0 +1,47 @@
+nav {
+    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    font-size: 1.5rem;
+}
+
+nav figure {
+    font-size: 2rem;
+}
+
+nav .links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav .links li {
+    padding: 0.5rem;
+}
+
+nav .links li a {
+    transition: 0.2s color;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav .links li > a:not(.selected):hover {
+    color: #5454fc;
+}
+
+nav .links li:has(a.selected) {
+    background-color: #5454fc;
+    border-radius: 0.5rem;
+    transition: 0.2s background-color;
+    color: white;
+}
+
+nav .links li:has(a.selected:hover) {
+    background-color: #2e2e97;
+}

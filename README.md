@@ -8,9 +8,9 @@ I'm Domodiak, a self-taught programmer from Ukraine, I prioritise versatility, w
 
 ## Projects
 
-### 01. Virtual World
+### 01. Car AI
 
-- **Description:** This is a top-down view game, where you can create your own world, inspired by one of [FreeCodeCamp's courses](https://www.youtube.com/watch?v=5iHejdqYIa8)
+- **Description:** This is a top-down view project, where an AI car is learning to reach a specific target on the map
 - **Link:** https://domodiak.github.io/virtual-world/
 
 ## Website

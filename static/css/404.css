@@ -1,17 +1,26 @@
-.btn {
+section#content a {
     padding: 1rem;
-    background-color: rgb(33, 47, 95);
-    border-radius: 0.3rem;
+    background-color: var(--accent);
+    border-radius: 0.5rem;
     text-decoration: none;
-    color: white;
+    color: var(--text);
+}
+section#content a:hover {
+    background-color: var(--accent);
 }
 
-.text {
+p {
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 900;
 }
 
-body {
+section#content {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
